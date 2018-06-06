@@ -4,19 +4,19 @@
    * map
    * 其他
    
->  ####2.异常体系结构（exception模块)  
+>  #### 2.异常体系结构（exception模块)  
    * 定义一个异常
    * 常见异常
    * try、catch、finally
 
->  ####3.Java多线程(thread模块)
+>  #### 3.Java多线程(thread模块)
    * 线程创建方式
    * 线程的状态
    * 线程的状态
    * 死锁
    * 锁
    
->  ####4.设计模式(design-mode模块)
+>  #### 4.设计模式(design-mode模块)
    * 工厂模式
    * 抽象工厂模式
    * 建造者模式
