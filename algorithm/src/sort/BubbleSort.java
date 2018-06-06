@@ -3,7 +3,8 @@ package sort;
 import util.SortUtil;
 
 /**
- * 冒泡排序 :
+ * 冒泡排序 : 时间复杂度为O(n^2);
+ * 两两比较，大的放到后面
  *
  * @author lming.41032@gmail.com
  * @date 18-6-6 下午2:34
