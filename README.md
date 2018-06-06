@@ -38,7 +38,8 @@
 >  ### 5.算法(algorithm模块)
    * 十大排序算法
    * 算法题：字符串类算法、链表类算法、栈类算法、树类算法
->  #### 6.第三方包(third-party-package模块)
+   
+>  ### 6.第三方包(third-party-package模块)
    
 
 >  ### 7.IO流(io-stream模块)
