@@ -32,8 +32,8 @@ public class CreateThreadByLambda {
 //                    e.printStackTrace();
 //                }
 //            }
-            //TODO 为什么加上while(true)可以没有返回值？ 如果为什么返回值要在while中加，
-            //TODO  如果加上返回值，就回终止线程，那么加上返回值还有什么用呢？
+            //TODO 为什么加上while(true)可以没有返回值？ 为什么返回值要在while中加，
+            //TODO  如果在while中加上返回值，就会终止线程，那么加上返回值还有什么用呢？
             System.out.println("任务二正在运行");
             return "任务二";
         });
