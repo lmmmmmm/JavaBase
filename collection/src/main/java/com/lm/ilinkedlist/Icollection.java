@@ -1,4 +1,4 @@
-package com.lm.ilinklist;
+package com.lm.ilinkedlist;
 
 public interface Icollection {
 
