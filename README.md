@@ -13,7 +13,17 @@
 
 >  #### 3.Java多线程(thread模块)
    * 线程创建方式
-   * 线程的状态
+      <table><tr><td bgcolor=#D1EEEE>
+      
+        + 继承Thread类  
+          
+        + 实现Runnable接口
+        
+        + 实现Callable接口，实现call方法，创建FutureTask对象，将Callable对象传递给FutureTask对象
+            创建Thread对象，将FutureTask对象传给Thread对象。
+            
+        + 具体实现在模块下面basic包下。 
+      </td></tr></table>
    * 线程的状态
    * 死锁
    * 锁
