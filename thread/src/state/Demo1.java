@@ -28,6 +28,13 @@ public class Demo1 {
         //3、等待CPU分配资源进入运行状态
 
         //4、
+
+    }
+
+    public static void main(String[] args) {
+        String str = "123457";
+        char end = 3;
+        System.out.println(str.substring(1, end));
     }
 
 }
