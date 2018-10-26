@@ -1,4 +1,4 @@
-package com.lm.ilinkedlist;
+package com.lm.ilinkedlist.service;
 
 public interface IList extends Icollection {
 

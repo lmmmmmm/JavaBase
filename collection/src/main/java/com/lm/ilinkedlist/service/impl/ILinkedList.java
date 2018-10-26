@@ -1,4 +1,6 @@
-package com.lm.ilinkedlist;
+package com.lm.ilinkedlist.service.impl;
+
+import com.lm.ilinkedlist.service.IList;
 
 public class ILinkedList implements IList {
 
@@ -41,12 +43,19 @@ public class ILinkedList implements IList {
 
     @Override
     public void add(Object e, int index) {
+        checkEntryIsNull(e);
 
     }
 
     @Override
     public boolean contains(Object o) {
-
+        int i = 0;
+        while (i < size) {
+            if (get(i).equals(o)) {
+                return true;
+            }
+            i++;
+        }
         return false;
     }
 
@@ -102,6 +111,26 @@ public class ILinkedList implements IList {
         if (e == null) {
             throw new RuntimeException("添加的元素不能为空");
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder().append("List:");
+        for(int i = 0;i<size; i++){
+            stringBuilder.append(this.get(i));
+        }
+        return stringBuilder.toString();
     }
 }
 
