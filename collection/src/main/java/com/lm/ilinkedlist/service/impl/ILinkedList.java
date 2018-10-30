@@ -67,11 +67,14 @@ public class ILinkedList implements IList {
             head = new Entry(e, null, null);
             last = head;
         } else {
+            //TODO 插入逻辑
             Entry entry = new Entry(e, null, null);
-            last.next = entry;
-            entry.pre = last;
+            Entry temp = last;
+            //将新增的元素作为last
+            last = entry;
+            //新增的元素前一个是last
+            last.pre = temp;
         }
-
         size++;
     }
 
@@ -83,7 +86,10 @@ public class ILinkedList implements IList {
     public void addFirst(Object e) {
         checkEntryIsNull(e);
         Entry entry = new Entry(e, null, null);
-        head.pre = entry;
+        //要插入的值变成header,原来的header变为要插入的值后面的元素
+        Entry temp = head;
+        head = entry;
+        head.next = temp;
     }
 
     public void addLast(Object e) {
@@ -94,12 +100,19 @@ public class ILinkedList implements IList {
 
 
     public Entry getEntry(int index) {
-        if (index >= size) {
-            return null;
+        //要查找的元素位置大于链表长度
+        if (index > size || index <0) {
+            throw new ArrayIndexOutOfBoundsException();
         }
-
+        if (index == size) {
+            return last;
+        }
+        if (index == 0) {
+            return head;
+        }
+        // 建立一个新的实体为链表头部。
         Entry entry = head;
-        int i = 0;
+        int i = 1;
         while (i < index) {
             entry = entry.next;
             i++;

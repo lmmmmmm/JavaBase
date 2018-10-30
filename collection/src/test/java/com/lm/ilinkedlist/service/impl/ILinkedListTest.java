@@ -1,6 +1,5 @@
 package com.lm.ilinkedlist.service.impl;
 
-import com.lm.ilinkedlist.service.IList;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +11,7 @@ import static org.junit.Assert.*;
  */
 public class ILinkedListTest {
 
-    private IList iLinkedList = new ILinkedList();
+    private ILinkedList iLinkedList = new ILinkedList();
 
     @Before
     public void setListInfo(){
@@ -58,15 +57,18 @@ public class ILinkedListTest {
 
     @Test
     public void addFirst() {
-
+        iLinkedList.addFirst(-1);
+        assertEquals(-1,iLinkedList.get(0));
     }
 
     @Test
     public void addLast() {
+        iLinkedList.addLast(100);
+        assertEquals(100,iLinkedList.get(iLinkedList.size()-1));
     }
 
     @Test
     public void toStringTest(){
-        iLinkedList.toString();
+        System.out.println(iLinkedList.toString());
     }
 }
