@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lmmmmmm/JavaBase.svg?branch=master)](https://travis-ci.org/lmmmmmm/JavaBase)
+
 >  ### 1.集合框架（collection模块） 
    * 链表       
    * 线性表.
