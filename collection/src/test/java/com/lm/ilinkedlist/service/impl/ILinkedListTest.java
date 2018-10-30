@@ -28,7 +28,7 @@ public class ILinkedListTest {
 
 
     @Test
-    public void isEmpty() {
+    public void isEmpty( ) {
         assertTrue(!iLinkedList.isEmpty());
     }
 
