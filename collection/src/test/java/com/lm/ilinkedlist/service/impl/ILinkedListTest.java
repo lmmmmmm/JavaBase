@@ -41,8 +41,17 @@ public class ILinkedListTest {
     public void get() {
     }
 
+
+    @Test
+    public void remove() {
+        iLinkedList.remove(0);
+        assertEquals(3,iLinkedList.size());
+    }
+
     @Test
     public void add() {
+        iLinkedList.add(4);
+        assertEquals(5,iLinkedList.size());
     }
 
     @Test
@@ -52,10 +61,6 @@ public class ILinkedListTest {
 
 
     @Test
-    public void remove() {
-    }
-
-    @Test
     public void addFirst() {
         iLinkedList.addFirst(-1);
         assertEquals(-1,iLinkedList.get(0));
@@ -63,12 +68,12 @@ public class ILinkedListTest {
 
     @Test
     public void addLast() {
-       // iLinkedList.addLast(100);
-       // assertEquals(100,iLinkedList.get(iLinkedList.size()-1));
+//        iLinkedList.addLast(100);
+//        assertEquals(100,iLinkedList.get(iLinkedList.size()-1));
     }
 
     @Test
     public void toStringTest(){
-      //  System.out.println(iLinkedList.toString());
+        System.out.println(iLinkedList.toString());
     }
 }
