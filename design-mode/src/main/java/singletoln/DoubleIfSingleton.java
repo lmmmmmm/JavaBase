@@ -1,4 +1,4 @@
-package singletoln;
+package main.java.singletoln;
 
 /**
  * 双重if锁单例
