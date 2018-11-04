@@ -65,4 +65,16 @@ public class SortUtil {
         return arr;
     }
 
+
+    /**
+     * 检查参数
+     *
+     * @param arr
+     */
+    public static void checkParam(int[] arr) {
+        if (arr == null || arr.length <= 0) {
+            throw new IllegalArgumentException("参数错误！");
+        }
+    }
+
 }
