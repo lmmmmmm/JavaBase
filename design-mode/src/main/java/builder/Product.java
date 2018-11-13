@@ -1,4 +1,4 @@
-package main.java.builder;
+package builder;
 
 /**
  * 产品类（房子）

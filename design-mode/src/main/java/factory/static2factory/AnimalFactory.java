@@ -1,4 +1,4 @@
-package main.java.factory.static2factory;
+package factory.static2factory;
 
 /**
  * @author lming.41032@gmail.com

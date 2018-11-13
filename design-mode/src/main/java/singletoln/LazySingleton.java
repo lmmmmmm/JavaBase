@@ -1,4 +1,4 @@
-package main.java.singletoln;
+package singletoln;
 
 /**
  * 懒汉式单例

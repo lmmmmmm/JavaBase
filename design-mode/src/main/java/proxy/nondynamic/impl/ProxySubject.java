@@ -1,6 +1,5 @@
 package proxy.nondynamic.impl;
 
-
 import proxy.nondynamic.Subject;
 
 /**

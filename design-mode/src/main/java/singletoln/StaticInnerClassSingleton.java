@@ -1,4 +1,4 @@
-package main.java.singletoln;
+package singletoln;
 
 /**
  * 静态内部类

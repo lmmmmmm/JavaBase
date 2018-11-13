@@ -1,4 +1,4 @@
-package main.java.builder;
+package builder;
 
 /**
  * 抽象建造（盖房子）

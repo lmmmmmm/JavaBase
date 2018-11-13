@@ -1,4 +1,4 @@
-package main.java.factory.method2factory;
+package factory.method2factory;
 
 /**
  * @author lming.41032@gmail.com

@@ -1,4 +1,4 @@
-package main.java.builder;
+package builder;
 
 /**
  * 具体建造
