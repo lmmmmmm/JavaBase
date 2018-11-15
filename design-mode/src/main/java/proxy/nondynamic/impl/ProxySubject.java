@@ -16,9 +16,18 @@ public class ProxySubject implements Subject {
 
     @Override
     public void dealTask(String taskName) {
-        System.out.println("开始执行任务");
+        before();
         subject.dealTask("任务是" + taskName);
-        System.out.println("任务执行完成");
+        after();
+    }
+
+
+    private void before() {
+        System.out.println("开始执行任务！");
+    }
+
+    private void after() {
+        System.out.println("任务执行完成！");
     }
 
 }
