@@ -1,7 +1,5 @@
 package proxy.dynamic.impl;
 
-import proxy.dynamic.Task;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
@@ -11,12 +9,27 @@ import java.lang.reflect.Method;
  */
 public class TaskHandler implements InvocationHandler {
 
+    /**
+     * 要代理的真实对象
+     */
     private Object obj;
 
+    /**
+     * 给要代理的对象赋初值
+     *
+     * @param obj
+     */
     public TaskHandler(Object obj) {
         this.obj = obj;
     }
 
+    /**
+     * @param proxy  代理类的实例
+     * @param method 被调用的方法对象
+     * @param args   调用参数
+     * @return
+     * @throws Throwable
+     */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         before();
