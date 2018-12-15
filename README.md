@@ -102,10 +102,12 @@
             &ensp;2 参数的类型可以省去,因为Jvm会通过上下文推断出参数的类型,该操作叫做"类型推断"  
         + Lambda表达式使用需要"函数式接口"的支持:接口中只有一个方法,可以使用@FunctionInterface声明该接口  
         + Lambda表达式提供了内置的函数式接口在java.util.function包下.使用这些内置的函数式接口可以减轻我们的工作量,其中主要包含四个核心的接口:  
-           &ensp;1 Consumer<T>    消费型接口:   void accept(T t)  
-           &ensp;2 Supplier<T>    提供型接口:   T get()  
-           &ensp;3 Function<T R>  函数型接口:   R apply(T t)  
-           &ensp;4 Predicate<T>   断言型接口:   boolean test(T t)  
+          ```text
+           Consumer<T>    消费型接口:   void accept(T t)  
+           Supplier<T>    提供型接口:   T get()  
+           Function<T R>  函数型接口:   R apply(T t)  
+           Predicate<T>   断言型接口:   boolean test(T t)  
+            ```
         + Lambda表达式的方法引用和构造器引用:  
            &ensp;1 方法引用格式   
            &ensp;&ensp;1.1 对象::实例方法名  
@@ -115,14 +117,14 @@
                   consumer.accept(str);
               }
             ```  
-           &ensp;&ensp;1.2 类::静态方法名  
+           &ensp;&ensp;1.2 类名::静态方法名  
            ```java
               public static void test2() {
                   Comparator<Integer> comparator = Integer::compare;
                   comparator.compare(1, 2);
               }
            ```  
-           &ensp;&ensp;1.3 类::实例方法名  
+           &ensp;&ensp;1.3 类名::实例方法名  
            ```java
              public void test3() {
                  BiPredicate<String, String> biPredicate = String::equals;
@@ -145,5 +147,5 @@
            ```  
            &ensp;3 注意:    
            &ensp;&ensp;3.1 Lambda体中调用的方法参数列表和返回值要个函数式接口中的方法的参数列表和返回值相同    
-           &ensp;&ensp;3.2 Lambda体中调用的方法参数列表和返回值要个函数式接口中的方法的参数列表和返回值相同  
+           &ensp;&ensp;3.2 使用类名::方法名的前提条件是Lambda参数列表中的第一个参数是实例方法的调用者,其他参数作为实例方法的参数
            &ensp;&ensp;3.3 需要调用的构造器参数列表要与函数式接口中方法的参数列表保持一致  
