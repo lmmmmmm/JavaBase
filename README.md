@@ -92,12 +92,58 @@
    * Lambda表达式
         + Java8中引入了一个新的操作符号:"->",称为箭头操作符或者Lambda操作符
         + 操作符左侧是Lambda表达式所需的参数,操作符右侧是lambda表达式所需执行的功能,称为Lambda体.
-        + Lambda的几种常见的用法:
-            1 没有参数,没有返回值:() -> System.out.println("无参数,无返回值");
-            2 有一个参数,没有返回值:(x) -> System.out.println(x);
-            3 有多个参数,有返回值:(x, y) -> Integer.compare(x, y);
-        + 注意:
-            1 如果参数只有一个,则()可以省略
-            2 如果Lambda体中有多条语句,并且有返回值,则需要加上{},并且增加return,否则不需自己return和写{}
-            2 参数的类型可以省去,因为Jvm会通过上下文推断出参数的类型,该操作叫做"类型推断"
-        + Lambda表达式使用需要"函数式接口"的支持:接口中只有一个方法,可以使用@FunctionInterface声明该接口
+        + Lambda的几种常见的用法:  
+            &ensp;1 没有参数,没有返回值:() -> System.out.println("无参数,无返回值");  
+            &ensp;2 有一个参数,没有返回值:(x) -> System.out.println(x);  
+            &ensp;3 有多个参数,有返回值:(x, y) -> Integer.compare(x, y);  
+        + 注意:  
+            &ensp;1 如果参数只有一个,则()可以省略  
+            &ensp;2 如果Lambda体中有多条语句,并且有返回值,则需要加上{},并且增加return,否则不需自己return和写{}  
+            &ensp;2 参数的类型可以省去,因为Jvm会通过上下文推断出参数的类型,该操作叫做"类型推断"  
+        + Lambda表达式使用需要"函数式接口"的支持:接口中只有一个方法,可以使用@FunctionInterface声明该接口  
+        + Lambda表达式提供了内置的函数式接口在java.util.function包下.使用这些内置的函数式接口可以减轻我们的工作量,其中主要包含四个核心的接口:  
+           &ensp;1 Consumer<T>    消费型接口:   void accept(T t)  
+           &ensp;2 Supplier<T>    提供型接口:   T get()  
+           &ensp;3 Function<T R>  函数型接口:   R apply(T t)  
+           &ensp;4 Predicate<T>   断言型接口:   boolean test(T t)  
+        + Lambda表达式的方法引用和构造器引用:  
+           &ensp;1 方法引用格式   
+           &ensp;&ensp;1.1 对象::实例方法名  
+            ```java
+              public static void test1(String str) {
+                  Consumer consumer = System.out::println;
+                  consumer.accept(str);
+              }
+            ```  
+           &ensp;&ensp;1.2 类::静态方法名  
+           ```java
+              public static void test2() {
+                  Comparator<Integer> comparator = Integer::compare;
+                  comparator.compare(1, 2);
+              }
+           ```  
+           &ensp;&ensp;1.3 类::实例方法名  
+           ```java
+             public void test3() {
+                 BiPredicate<String, String> biPredicate = String::equals;
+                 biPredicate.test("李四", "张三");
+             }
+           ```  
+           &ensp;2 构造器引用格式  
+           &ensp;&ensp;2.1 ClassName::new
+           ```java
+              public void supplier() {
+                  //Lambda
+                  Supplier<User> supplier = () -> new User();
+                  //构造器引用(调用Use无参构造器)
+                  Supplier<User> supplier1 = User::new;
+                  //构造器引用(调用User对象有一个参数构造器)
+                  Function<String, User> function = User::new;
+                  // 构造器引用,调用user对象有两个参数的构造器
+                  BiFunction<String, Integer, User> biFunction = User::new;
+               }
+           ```  
+           &ensp;3 注意:    
+           &ensp;&ensp;3.1 Lambda体中调用的方法参数列表和返回值要个函数式接口中的方法的参数列表和返回值相同    
+           &ensp;&ensp;3.2 Lambda体中调用的方法参数列表和返回值要个函数式接口中的方法的参数列表和返回值相同  
+           &ensp;&ensp;3.3 需要调用的构造器参数列表要与函数式接口中方法的参数列表保持一致  

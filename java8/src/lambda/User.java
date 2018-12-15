@@ -18,6 +18,18 @@ public class User {
         this.salary = salary;
     }
 
+    public User() {
+    }
+
+    public User(String userName) {
+        this.userName = userName;
+    }
+
+    public User(String userName, Integer age) {
+        this.userName = userName;
+        this.age = age;
+    }
+
     public String getUserName() {
         return userName;
     }
