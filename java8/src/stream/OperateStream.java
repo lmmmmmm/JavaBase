@@ -1,6 +1,8 @@
 package stream;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -19,6 +21,9 @@ public class OperateStream {
         skip();
         distinct();
         map();
+        flatmap();
+        mapToInt();
+        peek();
     }
 
     /**
@@ -71,6 +76,43 @@ public class OperateStream {
                 .stream()
                 .map((str) -> str.toUpperCase())
                 .forEach(System.out::println);
+    }
+
+    /**
+     * mapToLong mapToDouble 同理
+     */
+    public static void mapToInt() {
+        System.out.println("--------Stream的mapToInt操作");
+        Stream<String> stream = Stream.of("a", "b", "c", "d");
+        stream.mapToInt(a -> a.hashCode()).forEach(System.out::println);
+
+    }
+
+    public static void peek() {
+        System.out.println("--------Stream的peek操作");
+        Stream<String> stream = Stream.of("a", "b", "c", "d");
+        stream.peek((a) -> System.out.println(a.toUpperCase())).count();
+    }
+
+    /**
+     *
+     */
+    public static void flatmap() {
+        System.out.println("--------Stream的flatmap操作");
+        String poetry = "Where, before me, are the ages that have gone?\n" +
+                "And where, behind me, are the coming generations?\n" +
+                "I think of heaven and earth, without limit, without end,\n" +
+                "And I am all alone and my tears fall down.";
+        Stream<String> lines = Arrays.stream(poetry.split("\n"));
+        Stream<String> words = lines.flatMap(line -> Arrays.stream(line.split(" ")));
+        List<String> l = words.map(w -> {
+            if (w.endsWith(",") || w.endsWith(".") || w.endsWith("?")) {
+                return w.substring(0, w.length() - 1).trim().toLowerCase();
+            } else {
+                return w.trim().toLowerCase();
+            }
+        }).distinct().sorted().collect(Collectors.toList());
+        System.out.println(l);
     }
 
 }
