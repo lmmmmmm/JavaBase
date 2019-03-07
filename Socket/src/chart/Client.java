@@ -1,8 +1,9 @@
 package chart;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author lming.41032@gmail.com
@@ -10,18 +11,14 @@ import java.net.Socket;
  */
 public class Client {
 
-    public void go() throws IOException {
+    public static void main(String[] args) throws IOException {
         // 创建socket
         Socket socketClient = new Socket("127.0.0.1", 5000);
         // 向服务器发送消息
-        PrintWriter ps = new PrintWriter(socketClient.getOutputStream());
-        ps.write("message to send!");
-        ps.close();
-    }
-
-
-    public static void main(String[] args) throws IOException {
-        Client sc = new Client();
-        sc.go();
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(socketClient.getOutputStream());
+        Map<String,Object> data = new HashMap<>();
+        data.put("msg","你好!");
+        objectOutputStream.writeObject(data);
+        objectOutputStream.flush();
     }
 }

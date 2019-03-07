@@ -3,6 +3,8 @@ package chart;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author lming.41032@gmail.com
@@ -10,21 +12,14 @@ import java.net.Socket;
  */
 public class Server {
 
-    public void go() throws IOException {
-        ServerSocket ss = new ServerSocket(5000);
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        ServerSocket ss = new ServerSocket(5209);
         while (true) {
             Socket socket = ss.accept();
-            InputStreamReader inputStreamReader = new InputStreamReader(socket.getInputStream());
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String s = bufferedReader.readLine();
-            System.out.println(s);
-            inputStreamReader.close();
+            ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
+            Map<String,Object> data = (HashMap) ois.readObject();
+            System.out.println(data);
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-        Server ss = new Server();
-        ss.go();
     }
 
 }
