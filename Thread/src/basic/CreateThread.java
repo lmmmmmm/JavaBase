@@ -1,4 +1,4 @@
-package main.basic;
+package basic;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
